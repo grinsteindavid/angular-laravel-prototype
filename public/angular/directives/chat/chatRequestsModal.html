@@ -1,0 +1,56 @@
+<div class="modal fade" id="chat-requests">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Solicitudes de Chat</h4>
+      </div>
+      <div class="modal-body">
+
+        <div class="table-responsive">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th>Nombre del usuario</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr ng-repeat="rowRequest in requests">
+                <td>
+                  <span class="text-capitalize">{{ rowRequest.full_name }}</span>
+                </td>
+                <td>
+                  <i class="fa fa-user" ng-show="!rowRequest.active" style="color: #CB2E2E"></i>
+                  <i class="fa fa-user" ng-show="rowRequest.active" style="color: #59A62F"></i>
+                </td>
+                <td>
+                  <button type="button" class="btn btn-sm btn-primary" ng-click="acceptRequest(rowRequest)" data-dismiss="modal">
+                    <i class="glyphicon glyphicon-ok" aria-hidden="true"></i>
+                  </button>
+                  <button type="button" class="btn btn-sm btn-danger" ng-click="destroyRequest(rowRequest)">
+                    <i class="glyphicon glyphicon-remove" aria-hidden="true"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="text-primary">Cantidad total de solicitudes: {{ requestQuantity }}</div>
+
+        <ul class="pager" style="margin-bottom: 50px" ng-show="requestQuantity > 10">
+          <li ng-click="back()" ng-class="{disabled: !allowBack}"><a href="#">Atras</a></li>
+          <li ng-click="next()" ng-class="{disabled: !allowNext}"><a href="#">Siguiente</a></li>
+        </ul>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<debug></debug>

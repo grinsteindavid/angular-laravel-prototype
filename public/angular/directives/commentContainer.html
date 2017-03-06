@@ -1,0 +1,43 @@
+<div infinite-scroll="fetchComments()" infinite-scroll-disabled='busy' infinite-scroll-distance="1">
+  <div class="panel panel-default" style="" ng-repeat="comment in comments">
+    <div class="panel-body">
+      <div class="media">
+
+        <span>
+          <img class="media-object img-thumbnail pull-left hidden-xs" src="{{ comment.user_image }}" width="10%" style="margin-right: 15px">
+        </span>
+
+        <div class="media-body">
+          <h4 class="media-heading">
+            <strong class="text-capitalize">{{ comment.full_name }}</strong>
+            <span class="pull-right" style="font-size: 12px">
+              <i class="glyphicon glyphicon-time"></i>
+              <time>{{ comment.created_at }}</time>
+            </span>
+          </h4>
+
+          <blockquote ng-show="comment.reply.body" style="border-left: 4px solid #B9DFFC">
+            <h5 class="text-capitalize">
+              <strong style="color: #BA3737">@</strong>
+              <span>{{ comment.reply.full_name }}</span>
+            </h5>
+            <p>{{ comment.reply.body }}</p>
+          </blockquote>
+
+          <p>{{ comment.body }}</p>
+
+          <button type="button" class="btn btn-xs btn-danger btn-sm pull-right" ng-click="destroyComment(comment)" ng-show="isAdmin()" style="margin-left:10px">Eliminar</button>
+
+          <a href="#reply" class="btn btn-xs btn-primary btn-sm pull-right" ng-show="isActive" ng-click="setReply(comment)">Responder</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<span ng-show="busyIcon" class="text-center center-block" style="margin-bottom:40px">
+  <i class="fa fa-spinner fa-spin" style="font-size:60px"></i>
+</span>
+
+<debug></debug>

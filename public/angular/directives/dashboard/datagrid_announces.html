@@ -1,0 +1,38 @@
+<div class="table-responsive">
+  <a class="btn btn-primary" ui-sref="dashboard.createannounce" style="margin-bottom: 20px">Crear anuncio</a>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nombre del aviso</th>
+        <th>Imagen</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="rowAnnounce in announces">
+        <td>
+          <span>{{ rowAnnounce.name }}</span>
+        </td>
+        <td>
+          <span><a href="{{ rowAnnounce.image }}" target="_blank">Ver imagen</a></span>
+        </td>
+        <td>
+          <a ui-sref="dashboard.editannounce({slug: rowAnnounce.slug})" class="btn btn-sm btn-warning" >
+            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </a>
+          <button type="button" class="btn btn-sm btn-danger" ng-click="destroyAnnounce(rowAnnounce)">
+            <i class="glyphicon glyphicon-remove" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="text-primary">Cantidad total de anuncios: {{ announceQuantity }}</div>
+
+<ul class="pager" style="margin-bottom: 50px" ng-show="announceQuantity > 10">
+  <li ng-click="back()" ng-class="{disabled: !allowBack}"><a href="#">Atras</a></li>
+  <li ng-click="next()" ng-class="{disabled: !allowNext}"><a href="#">Siguiente</a></li>
+</ul>

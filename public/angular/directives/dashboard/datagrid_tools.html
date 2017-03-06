@@ -1,0 +1,40 @@
+<div class="table-responsive">
+  <a class="btn btn-primary" ui-sref="dashboard.createtool" style="margin-bottom: 20px">Crear herramienta</a>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nombre de la herramienta</th>
+        <th>Imagen</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="rowTool in tools">
+        <td>
+          <span>{{ rowTool.name }}</span>
+        </td>
+        <td>
+          <span><a href="{{ rowTool.image }}" target="_blank">Ver imagen</a></span>
+        </td>
+        <td>
+          <a ui-sref="dashboard.edittool({slug: rowTool.slug})" class="btn btn-sm btn-warning" >
+            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </a>
+          <button type="button" class="btn btn-sm btn-danger" ng-click="destroyTool(rowTool)">
+            <i class="glyphicon glyphicon-remove" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="text-primary">Cantidad total de herramientas: {{ toolQuantity }}</div>
+
+<ul class="pager" style="margin-bottom: 50px" ng-show="toolQuantity > 10">
+  <li ng-click="back()" ng-class="{disabled: !allowBack}"><a href="#">Atras</a></li>
+  <li ng-click="next()" ng-class="{disabled: !allowNext}"><a href="#">Siguiente</a></li>
+</ul>
+
+<debug></debug>

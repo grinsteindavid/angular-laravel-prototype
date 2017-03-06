@@ -1,0 +1,28 @@
+<div class="modal fade" id="login">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Inicio de sesion</h4>
+      </div>
+      <div class="modal-body">
+        <form name="loginForm" novalidate>
+
+          <div class="form-group">
+            <strong>Email:</strong>
+            <input type="text" class="form-control" ng-model="user.email" validator="required, email" valid-method="blur">
+          </div>
+
+          <div class="form-group">
+            <strong>Password:</strong>
+            <input type="password" class="form-control" ng-model="user.password" validator="required" valid-method="blur">
+          </div>
+
+          <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="login(user)" ng-disabled="!user.email || !user.password">Enviar</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>

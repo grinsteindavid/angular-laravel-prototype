@@ -1,0 +1,80 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation" style="border-radius: 0; margin:0">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="/">TAC Empresarial</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+
+        <li><a ui-sref="blog">Blog</a></li>
+        <li><a ui-sref="solutions">Soluciones</a></li>
+        <li><a href="#contact" data-toggle="modal">Contacto</a></li>
+
+        <li id="profile" class="hidden visible-xs">
+          <a ui-sref="dashboard.profile">Perfil de usuario</a>
+        </li>
+        <li id="tags" class="hidden visible-xs" ng-show="isAdmin()">
+          <a ui-sref="dashboard.tags">Etiquetas</a>
+        </li>
+        <li id="posts" class="hidden visible-xs" ng-show="isAdmin()">
+          <a ui-sref="dashboard.posts">Articulos</a>
+        </li>
+        <li id="tags" class="hidden visible-xs" ng-show="isAdmin()">
+          <a ui-sref="dashboard.announces">Anuncios</a>
+        </li>
+
+        <li class="dropdown hidden visible-xs" ng-show="isAdmin()">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Soluciones<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li id="inventory" class="hidden visible-xs">
+              <a ui-sref="dashboard.inventory">Inventario</a>
+            </li>
+            <li id="categories" class="hidden visible-xs">
+              <a ui-sref="dashboard.categories">Categorias</a>
+            </li>
+            <li id="testimonials" class="hidden visible-xs">
+              <a ui-sref="dashboard.testimonials">Testimonios</a>
+            </li>
+            <li id="projects" class="hidden visible-xs">
+              <a ui-sref="dashboard.projects">Proyectos</a>
+            </li>
+            <li id="tools" class="hidden visible-xs">
+              <a ui-sref="dashboard.tools">Herramientas</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+
+        <li><a href="#" ng-click="logout()" ng-show="isActive">Cerrar sesion</a></li>
+
+        <li class="dropdown" ng-show="isActive">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <span class="badge badge-primary" ng-show="isAdmin()">{{ requestQuantity }}</span>
+            Soporte Tecnico<b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu" ng-hide="chatActive">
+            <li><a href="#" ng-hide="isAdmin()" ng-click="storeRequest()">Solicitar chat</a></li>
+            <li>
+              <a href="#chat-requests" ng-show="isAdmin()" data-toggle="modal">Solicitudes de chat</a>
+            </li>
+          </ul>
+        </li>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div>
+</nav>
+
+<chat-requests-modal></chat-requests-modal>
+<contact-modal></contact-modal>

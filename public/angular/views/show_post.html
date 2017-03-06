@@ -1,0 +1,32 @@
+<div class="container" style="margin-top: 100px; margin-bottom: 150px; min-height: 600px">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12" style="margin-bottom:50px">
+
+      <div class="panel panel-default">
+        <div class="panel-body" style="padding: 50px">
+          <strong>Autor: </strong>
+          <strong class="text-capitalize text-primary">{{ post.writer_name }}</strong>
+          <span class="pull-right" style="font-size: 14px">
+            <i class="glyphicon glyphicon-time"></i>
+            <time>{{ post.created_at }}</time>
+          </span>
+          <h1 class="text-center">{{ post.title }}</h1>
+          <div ng-bind-html="post.body" style="min-height:400px"></div>
+          <div class="panel-footer">
+            <div class="text-center" js-socials js-socials-shares="twitter, facebook, googleplus, linkedin"></div>
+          </div>
+        </div>
+      </div>
+      <legend class="text-center" ng-hide="isActive">
+        <a href="#login" data-toggle="modal">Inicia sesion</a><span> para comentar en este articulo</span>
+      </legend>
+
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2" style="margin-bottom:50px">
+      <comment-form></comment-form>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+      <comment-container></comment-container>
+    </div>
+  </div>
+</div>

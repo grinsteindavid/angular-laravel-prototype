@@ -1,0 +1,39 @@
+<div class="container" style="margin-top: 100px; margin-bottom: 150px; min-height: 600px">
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3">
+
+      <div class="panel panel-default">
+        <div class="panel-heading text-center" style="border-bottom:0">
+          <h1 class="panel-title text-capitalize" style="font-size:24px">{{ solution.name }}</h1>
+          <h4 style="display: inline-block;" ng-repeat="category in solution.categories">
+            <a href="#" style="text-decoration:none">
+              <span class="label label-info">{{ category.name }}</span>
+            </a>
+          </h4>
+        </div>
+        <div class="panel-body">
+          <img class="img-responsive center-block" src="{{ solution.image }}" width="60%">
+          <p style="font-size: 18px">
+            <strong>Descripcion: </strong>{{ solution.description }}
+          </p>
+          <p><strong>Caracteristicas: </strong>{{ solution.features }}</p>
+          <a href="//{{ solution.link }}" target="_blank"><p><strong>Link: </strong>{{ solution.link }}</p></a>
+          <p>
+            <div class="text-center" js-socials js-socials-shares="twitter, facebook, googleplus, linkedin"></div>
+          </p>
+        </div>
+      </div>
+
+      <legend class="text-center" ng-hide="isActive">
+        <a href="#login" data-toggle="modal">Inicia sesion</a><span> para comentar en esta solucion</span>
+      </legend>
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2" style="margin-bottom:50px">
+      <testimonial-form></testimonial-form>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-8 col-md-offset-2">
+      <testimonial-container></testimonial-container>
+    </div>
+  </div>
+</div>

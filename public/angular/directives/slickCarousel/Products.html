@@ -1,0 +1,60 @@
+<div class="container">
+  <section class="slider-products" slick-carousel-control slick-type="center" data-slick='{"slidesToShow": 2, "slidesToScroll": 1}'>
+
+    <div class="thumbnail" ng-repeat="solution in solutions">
+      <div class="caption">
+        <h3>{{ solution.name }}</h3>
+        <p>{{ solution.description }}</p>
+      </div>
+    </div>
+
+  </section>
+</div>
+
+<style type="text/css">
+  .slider-products * {
+    box-sizing: border-box;
+  }
+
+  .slider-products {
+    width: 95%;
+    margin: 100px auto;
+  }
+
+  .slider-products .slick-slide {
+    margin: 0px 20px;
+  }
+
+  .slider-products .slick-slide img {
+    width: 100%;
+  }
+
+  .slider-products .slick-prev {
+    left: -50px;
+  }
+  .slider-products .slick-next {
+    right: -40px;
+  }
+  @media screen and (max-width: 920px)  {
+    .slider-products .slick-prev {
+      left: -30px;
+    }
+    .slider-products .slick-next {
+      right: -30px;
+    }
+  }
+
+  .slider-products .slick-prev:before {
+    color: black;
+    font-size: 30px;
+  }
+  .slider-products .slick-next:before {
+    color: black;
+    font-size: 30px;
+  }
+
+  .slider-products .slick-dots li button:before {
+    color: #266EB1;
+    font-size: 16px;
+  }
+</style>

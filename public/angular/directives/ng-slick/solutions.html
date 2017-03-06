@@ -1,0 +1,59 @@
+<slick settings="slickConfig" id="solutions" ng-if="solutions.length" ng-show="solutions.length">
+
+  <div class="thumbnail" ng-repeat="solution in solutions">
+    <img src="{{ solution.image }}" width="50%">
+    <div class="caption text-center">
+      <h3>{{ solution.name }}</h3>
+      <p>{{ solution.description }}</p>
+    </div>
+  </div>
+
+</slick>
+
+<style type="text/css">
+  #solutions * {
+    box-sizing: border-box;
+  }
+
+  #solutions {
+    width: 95%;
+    margin: 100px auto;
+  }
+
+  #solutions .slick-slide {
+    margin: 0px 20px;
+  }
+  /**
+  #solutions .slick-slide img {
+    width: 100%;
+  }
+  **/
+  #solutions .slick-prev {
+    left: -50px;
+  }
+  #solutions .slick-next {
+    right: -40px;
+  }
+  @media screen and (max-width: 920px)  {
+    #solutions .slick-prev {
+      left: -30px;
+    }
+    #solutions .slick-next {
+      right: -30px;
+    }
+  }
+
+  #solutions .slick-prev:before {
+    color: black;
+    font-size: 30px;
+  }
+  #solutions .slick-next:before {
+    color: black;
+    font-size: 30px;
+  }
+
+  #solutions .slick-dots li button:before {
+    color: #3E3E3E;
+    font-size: 16px;
+  }
+</style>

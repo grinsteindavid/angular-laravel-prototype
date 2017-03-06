@@ -1,0 +1,66 @@
+<div class="col-xs-12 col-sm-8 col-sm-offset-1 col-md-6 col-md-offset-2">
+  <div class="panel panel-primary" style="border:0">
+    <div class="panel-heading">
+      <h1 class="panel-title text-center text-capitalize">{{ fullName }}</h1>
+    </div>
+    <div class="panel-body">
+      <img class="img-responsive img-thumbnail center-block" ng-hide="user.picture" width="60%" src="{{ user.image }}">
+      <div class="form-group text-center center-block" ng-show="user.picture">
+        <strong>Vista previa</strong>
+        <img class="form-contro img-thumbnail img-rounded center-block" ngf-src="user.picture" ngf-background="user.picture" ngf-resize="{width: 320, height: 240, quality: 1}" ngf-no-object-url="true">
+      </div>
+    </div>
+    <div class="panel-footer">
+      <form name="profileForm" style="margin-bottom: 100px" novalidate>
+
+        <div class="form-group">
+          <strong>Imagen de perfil - Limite 1MB</strong>
+          <input type="file" name="picture" ngf-select ng-model="user.picture" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="1MB" ngf-min-height="100" ngf-resize="{width: 320, height: 240}" class="form-control">
+        </div>
+
+        <div class="form-group">
+          <strong>Email:</strong>
+          <input type="text" name="email" class="form-control" ng-model="user.email" validator="required, email" valid-method="watch">
+        </div>
+
+        <div class="form-group">
+          <strong>Nombre:</strong>
+          <input type="text" class="form-control text-capitalize" ng-model="user.person.first_name" validator="required" valid-method="blur" disabled="true">
+        </div>
+
+        <div class="form-group">
+          <strong>Apellido:</strong>
+          <input type="text" class="form-control text-capitalize" ng-model="user.person.last_name" validator="required" valid-method="blur" disabled="true">
+        </div>
+
+        <div class="form-group">
+          <strong>Genero:</strong>
+          <input type="text" class="form-control" ng-model="user.person.gender" validator="required" valid-method="blur" disabled="true">
+        </div>
+
+        <div class="form-group">
+          <strong>Fecha de nacimiento:</strong>
+          <input type="text" class="form-control" ng-model="user.person.date_of_birth | date:'d MMMM, y'" validator="required" valid-method="blur" disabled="true">
+        </div>
+
+        <div class="form-group">
+          <strong>Password:</strong>
+          <input type="password" name="password" class="form-control" ng-model="user.password" validator="required" valid-method="watch">
+        </div>
+
+        <div class="form-group">
+          <strong>Confirmar password:</strong>
+          <input type="password" class="form-control" ng-model="user.confirmPassword" validator="required" valid-method="blur">
+          <p class="validation-invalid" ng-show="user.password !== user.confirmPassword">
+            Las contrasenas deben ser iguales.
+          </p>
+        </div>
+
+        <button type="submit" class="btn btn-primary" data-dismiss="modal" ng-click="updateProfile(user)" ng-disabled="!profileForm.password.$valid || !profileForm.email.$valid || user.password !== user.confirmPassword">Cambiar datos personales</button>
+      </form>
+
+    </div>
+  </div>
+</div>
+
+<debug></debug>

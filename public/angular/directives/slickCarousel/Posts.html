@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Articulos recientes</h3>
+  </div>
+  <div class="panel-body">
+    <ul class="media-list slider-posts" slick-carousel-control slick-type="vertical">
+
+      <li class="media" ng-repeat="post in posts">
+        <div class="media-left">
+          <div class="media-body">
+            <a ui-sref="post({slug: post.slug})">
+              <h4 class="media-heading text-center">{{ post.title }}</h4>
+            </a>
+          </div>
+        </div>
+      </li>
+
+    </ul>
+  </div>
+</div>
+
+<style type="text/css">
+  .slider-posts * {
+    box-sizing: border-box;
+  }
+
+  .slider-posts {
+  }
+
+  .slider-posts .slick-slide {
+    margin: 0px;
+  }
+
+  .slider-posts .slick-dots li button:before {
+    color: #266EB1;
+    font-size: 14px;
+  }
+</style>

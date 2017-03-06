@@ -1,0 +1,51 @@
+<div class="table-responsive">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Cantidad de soluciones</th>
+        <th>Nombre de la categoria</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <form name="categoryForm" novalidate="">
+          <td>0</td>
+          <td>
+            <input type="text" ng-model="newCategory.name" class="form-control" validator="required" valid-method="blur">
+          </td>
+          <td>
+            <button class="btn btn-primary" ng-click="storeCategory(newCategory)">Crear categoria</button>
+          </td>
+        </form>
+      </tr>
+      <tr ng-repeat="rowCategory in categories">
+        <td>
+          <span>{{ rowCategory.solutions.length }}</span>
+        </td>
+        <td>
+          <span>{{ rowCategory.name }}</span>
+          <input type="text" ng-model="rowCategory.name" class="form-control hidden">
+        </td>
+        <td>
+          <button type="button" class="btn btn-sm btn-warning" ng-click="editRow()" datagrid-control>
+            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn btn-sm btn-success hidden" ng-click="updateCategory(rowCategory)" datagrid-control>
+            <i class="glyphicon glyphicon-ok" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="btn btn-sm btn-danger" ng-click="destroyCategory(rowCategory)">
+            <i class="glyphicon glyphicon-remove" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="text-primary">Cantidad total de categorias: {{ categoryQuantity }}</div>
+
+<ul class="pager" style="margin-bottom: 50px" ng-show="categorytQuantity > 10">
+  <li ng-click="back()" ng-class="{disabled: !allowBack}"><a href="#">Atras</a></li>
+  <li ng-click="next()" ng-class="{disabled: !allowNext}"><a href="#">Siguiente</a></li>
+</ul>

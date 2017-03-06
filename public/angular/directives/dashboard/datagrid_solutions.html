@@ -1,0 +1,48 @@
+<div class="table-responsive">
+  <a class="btn btn-primary" ui-sref="dashboard.createsolution" style="margin-bottom: 20px">Crear solucion</a>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Fecha de creacion</th>
+        <th>Imagen</th>
+        <th>Cantidad de testimonios</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="rowSolution in solutions">
+        <td>
+          <a ui-sref="solution({slug: rowSolution.slug})"><span>{{ rowSolution.name }}</span></a>
+        </td>
+        <td>
+          <span>{{ rowSolution.created_at }}</span>
+        </td>
+        <td>
+          <span ng-show="rowSolution.picture">
+            <a href="{{ rowSolution.picture }}" target="_blank">Ver imagen</a>
+          </span>
+        </td>
+        <td>
+          <span>{{ rowSolution.testimonials.length }}</span>
+        </td>
+        <td>
+          <a ui-sref="dashboard.editsolution({slug: rowSolution.slug})" class="btn btn-sm btn-warning">
+            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </a>
+          <button type="button" class="btn btn-sm btn-danger" ng-click="destroySolution(rowSolution)">
+            <i class="glyphicon glyphicon-remove" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="text-primary">Cantidad total de soluciones: {{ solutionQuantity }}</div>
+
+<ul class="pager" style="margin-bottom: 50px" ng-show="solutionQuantity > 10">
+  <li ng-click="back()" ng-class="{disabled: !allowBack}"><a href="#">Atras</a></li>
+  <li ng-click="next()" ng-class="{disabled: !allowNext}"><a href="#">Siguiente</a></li>
+</ul>

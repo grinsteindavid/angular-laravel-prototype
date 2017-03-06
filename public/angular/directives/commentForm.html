@@ -1,0 +1,20 @@
+<blockquote ng-show="blockquote.body" id="reply" style="border-left: 4px solid #B9DFFC">
+  <h5 class="text-capitalize"><span style="color: #BA3737">@</span>{{ blockquote.full_name }}</h5>
+  <p>{{ blockquote.body }}</p>
+</blockquote>
+
+<form name="commentForm" ng-show="isActive">
+
+  <div class="form-group" ng-show="!blockquote.body">
+    <textarea ng-model="newComment.body" class="form-control textarea-autosize" validator="required" valid-method="watch" textarea-autosize></textarea>
+  </div>
+
+  <div class="form-group" ng-show="blockquote.body">
+    <textarea ng-model="replyComment.body" class="form-control textarea-autosize" validator="required" valid-method="watch" textarea-autosize></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg pull-right" ng-show="!blockquote.body" ng-click="storeComment(newComment)" ng-disabled="!newComment.body">Enviar comentario</button>
+  <button type="submit" class="btn btn-primary btn-lg pull-right" ng-show="blockquote.body" ng-click="storeReply(replyComment)" ng-disabled="!replyComment.body">Enviar respuesta</button>
+  <button type="submit" class="btn btn-danger btn-lg pull-right" ng-show="blockquote.body" ng-click="cleanReply()" style="margin-right: 10px">Eliminar respuesta</button>
+
+</form>

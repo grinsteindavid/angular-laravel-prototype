@@ -1,0 +1,46 @@
+<div class="table-responsive">
+  <a class="btn btn-primary" ui-sref="dashboard.createpost" style="margin-bottom: 20px">Crear articulo</a>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Titulo del articulo</th>
+        <th>Fecha de publicacion</th>
+        <th>Cantidad de visitas</th>
+        <th>Redactor</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="rowPost in posts">
+        <td>
+          <span><a ui-sref="post({slug: rowPost.slug})">{{ rowPost.title }}</a></span>
+        </td>
+        <td>
+          <span>{{ rowPost.created_at }}</span>
+        </td>
+        <td>
+          <span>{{ rowPost.views }}</span>
+        </td>
+        <td>
+          <span class="text-capitalize">{{ rowPost.writer_name }}</span>
+        </td>
+        <td>
+          <a ui-sref="dashboard.editpost({slug: rowPost.slug})" class="btn btn-sm btn-warning">
+            <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+          </a>
+          <button type="button" class="btn btn-sm btn-danger" ng-click="destroyPost(rowPost)">
+            <i class="glyphicon glyphicon-remove" aria-hidden="true"></i>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="text-primary">Cantidad total de articulos: {{ postQuantity }}</div>
+
+<ul class="pager" style="margin-bottom: 50px" ng-show="postQuantity > 10">
+  <li ng-click="back()" ng-class="{disabled: !allowBack}"><a href="#">Atras</a></li>
+  <li ng-click="next()" ng-class="{disabled: !allowNext}"><a href="#">Siguiente</a></li>
+</ul>

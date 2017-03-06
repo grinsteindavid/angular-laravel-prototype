@@ -1,0 +1,32 @@
+<div class="col-xs-12 col-sm-11 col-md-11" style="margin-bottom: 100px">
+
+  <form name="postForm" novalidate>
+
+    <div class="form-group">
+      <strong>Titulo</strong>
+      <input type="text" class="form-control" ng-model="newPost.title" validator="required" valid-method="watch">
+    </div>
+
+    <div class="form-group">
+      <strong>Descripcion breve</strong>
+      <textarea type="text" class="form-control" ng-model="newPost.description" validator="required" valid-method="watch"></textarea>
+    </div>
+
+    <div class="form-group">
+      <strong>Descripcion detallada</strong>
+      <text-angular angular-trix ng-model="newPost.body"></text-angular>
+    </div>
+
+    <div class="form-group">
+      <strong>Seleccionar etiquetas</strong>
+      <select class="form-control" ng-options="tag for tag in tags" ng-model="newPost.tags" chosen options="tags" data-placeholder="Ninguna" multiple>
+        <option value=""></option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-lg btn-primary center-block" ng-click="storePost(newPost)" ng-disabled="!postForm.$valid || !newPost.tags || !newPost.body">Enviar</button>
+  </form>
+
+</div>
+
+<debug></debug>

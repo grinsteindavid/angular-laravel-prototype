@@ -1,0 +1,9 @@
+<form name="testimonialForm" ng-show="isActive">
+
+  <div class="form-group">
+    <textarea ng-model="newTestimonial.body" class="form-control textarea-autosize" validator="required" valid-method="watch" textarea-autosize></textarea>
+  </div>
+
+  <button type="submit" class="btn btn-primary btn-lg pull-right" ng-click="storeTestimonial(newTestimonial)" ng-disabled="!testimonialForm.$valid">Enviar testimonio</button>
+
+</form>

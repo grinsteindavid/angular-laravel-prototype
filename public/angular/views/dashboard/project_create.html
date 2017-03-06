@@ -1,0 +1,37 @@
+<div class="col-xs-12 col-sm-11 col-md-11" style="margin-bottom: 100px">
+
+  <form name="projectForm" novalidate>
+
+    <div class="form-group">
+      <strong>Nombre</strong>
+      <input type="text" class="form-control" ng-model="newProject.name" validator="required" valid-method="watch">
+    </div>
+
+    <div class="form-group">
+      <strong>Descripcion</strong>
+      <textarea class="form-control" ng-model="newProject.description" validator="required" valid-method="watch"></textarea>
+    </div>
+
+    <div class="form-group">
+      <strong>Link</strong>
+      <input type="text" class="form-control" ng-model="newProject.link" validator="required" valid-method="watch">
+    </div>
+
+    <div class="form-group">
+      <strong>Thumbnail</strong>
+      <input type="file" ngf-select ng-model="newProject.picture" ngf-pattern="'image/*'" ngf-accept="'image/*'" ngf-max-size="1MB" ngf-min-height="100" ngf-resize="{width: 320, height: 240}" class="form-control">
+    </div>
+
+    <div class="form-group">
+      <strong>Seleccionar soluciones</strong>
+      <select class="form-control" ng-options="solution for solution in solutions" ng-model="newProject.solutions" chosen options="solutions" data-placeholder="Ninguna" multiple>
+        <option value=""></option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-lg btn-primary center-block" ng-click="storeProject(newProject)" ng-disabled="!projectForm.$valid || !newProject.solutions">Crear proyecto</button>
+  </form>
+
+</div>
+
+<debug></debug>

@@ -1,0 +1,19 @@
+.ng-invalid.ng-dirty.form-control {
+  color: $brand-danger;
+}
+
+.ng-valid.ng-dirty.form-control {
+  color: $brand-success;
+}
+
+.validation-invalid {
+  color: white;
+  font-size: 12px;
+  background-color: $brand-danger;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 2px solid $brand-danger;
+  border-radius: 2em;
+  float: right !important;
+  margin: 5px;
+}

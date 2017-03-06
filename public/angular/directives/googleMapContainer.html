@@ -1,0 +1,25 @@
+<div role="tabpanel" style="margin-bottom: 0">
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active" ng-click="changePosition('eeuu')">
+      <a href="#eeuu" aria-controls="home" role="tab" data-toggle="tab">Estados Unidos</a>
+    </li>
+    <li role="presentation" ng-click="changePosition('argentina')">
+      <a href="#argentina" aria-controls="tab" role="tab" data-toggle="tab">Argentina</a>
+    </li>
+    <li role="presentation" ng-click="changePosition('venezuela')">
+      <a href="#venezuela" aria-controls="tab" role="tab" data-toggle="tab">Venezuela</a>
+    </li>
+  </ul>
+</div>
+
+<ng-map center="{{ map.center }}" zoom="{{ map.zoom }}" style="height:400px;border: 2px solid #9B9B9B">
+  <span id="eeuu"></span>
+  <marker position="{{ markers.eeuu }}" title="eeuu" animation="Animation.BOUNCE"></marker>
+
+  <span id="argentina"></span>
+  <marker position="{{ markers.argentina }}" title="argentina" animation="Animation.BOUNCE"></marker>
+
+  <span id="venezuela"></span>
+  <marker position="{{ markers.venezuela }}" title="venezuela" animation="Animation.BOUNCE"></marker>
+</ng-map>

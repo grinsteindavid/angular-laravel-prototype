@@ -1,0 +1,28 @@
+<div infinite-scroll="fetchTestimonials()" infinite-scroll-disabled='busy' infinite-scroll-distance="1">
+  <div class="panel panel-default" style="" ng-repeat="testimonial in testimonials">
+    <div class="panel-body">
+      <div class="media">
+        <span>
+          <img class="pull-left hidden-xs img-thumbnail" src="{{ testimonial.user_image }}" width="10%" style="margin-right: 15px">
+        </span>
+        <div class="media-body">
+          <h4 class="media-heading">
+            <strong class="text-capitalize">{{ testimonial.full_name }}</strong>
+            <span class="pull-right" style="font-size:12px">
+              <i class="glyphicon glyphicon-time"></i>
+              <time>{{ testimonial.created_at }}</time>
+            </span>
+          </h4>
+          <p>{{ testimonial.body }}</p>
+          <button type="button" class="btn btn-xs btn-danger btn-sm pull-right" ng-click="destroyTestimonial(testimonial)" ng-show="isAdmin()" style="margin-left:10px">Eliminar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<span ng-show="busyIcon" class="text-center center-block" style="margin-bottom:40px">
+  <i class="fa fa-spinner fa-spin" style="font-size:60px"></i>
+</span>
+
+<debug></debug>

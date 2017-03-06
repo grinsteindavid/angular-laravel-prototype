@@ -1,0 +1,42 @@
+<div class="sidebar">
+  <ul class="nav nav-sidebar">
+
+    <li id="banner" class="active">
+      <a class="">Panel de control</a>
+    </li>
+    <li id="profile">
+      <a ui-sref="dashboard.profile">Perfil de usuario</a>
+    </li>
+    <li id="tags" ng-show="isAdmin()">
+      <a ui-sref="dashboard.tags">Etiquetas</a>
+    </li>
+    <li id="posts" ng-show="isAdmin()">
+      <a ui-sref="dashboard.posts">Articulos</a>
+    </li>
+    <li id="announces" ng-show="isAdmin()">
+      <a ui-sref="dashboard.announces">Anuncios</a>
+    </li>
+
+    <li data-toggle="collapse" data-target="#dashboard-solutions" ng-show="isAdmin()">
+      <a href="#">Soluciones<span class="caret"></span></a>
+      <ul class="collapse" id="dashboard-solutions">
+        <li id="inventory">
+          <a ui-sref="dashboard.inventory">Inventario</a>
+        </li>
+        <li id="categories">
+          <a ui-sref="dashboard.categories">Categorias</a>
+        </li>
+        <li id="testimonials">
+          <a ui-sref="dashboard.testimonials">Testimonios</a>
+        </li>
+        <li id="testimonials">
+          <a ui-sref="dashboard.projects">Proyectos</a>
+        </li>
+        <li id="tools">
+          <a ui-sref="dashboard.tools">Herramientas</a>
+        </li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
